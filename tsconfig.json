@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+      "target": "es2016",                               /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+      "removeComments": true,                           /* Omit comments to output */
+      "outDir": "./js",                                 /* Create all JavaScript files in a folder named js */
+    }
+  }   
