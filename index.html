@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <script defer src="js/main.js"></script>
 </head>
-<body>
-    <h1>To-Do List</h1>
-  
-  <!-- Input Fields and Buttons-->
-  <input type="text" id="todo-input" placeholder="Enter a new task" />
-  <button id="add-todo">Add Task</button>
 
-  <!-- Display the list -->
-  <ul id="todo-list"></ul>
+<body>
+    <form>
+        <h1>To-Do List</h1>
+
+        <!-- Input Fields and Buttons-->
+        <input type="text" id="todo-input" placeholder="Enter a new task" />
+        <span class="error-msg"></span>
+
+        <button type = "button" id="add-todo">Add Task</button>
+    </form>
+
+    <!-- Display the list -->
+    <ul id="todo-list"></ul>
+
 </body>
+
 </html>
