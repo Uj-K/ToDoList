@@ -1,11 +1,6 @@
 class TodoList {
-    todoInput: String;
+    userInput: string;
 }
-
-let newTask = new TodoList();
-newTask.todoInput = "let me see...";
-
-console.log(newTask);
 
 //set up button click for add task to the list
 window.onload = function () {
@@ -14,8 +9,6 @@ window.onload = function () {
 }
 
 function processTask() {
-    alert("We added your task in the list!");
-
     let userTask = getTask();
     if (userTask != null) {
         addTask(userTask);
@@ -23,9 +16,27 @@ function processTask() {
 
     /**
      * This function will retrieve the task data from the HTML page
+     * If the data is valid a ToDoList object will be returned
+     * otherwise, null will be returned with error messages
      */
     function getTask(): TodoList {
+        let inputTextbox = document.querySelector("#todo-input") as HTMLInputElement;
 
+        let isValidData:boolean = true;
+
+        let userInput: string = inputTextbox.value.trim();
+        if (userInput == "") { 
+            isValidData = false;
+            alert("Please add something!");
+        }
+
+        if (isValidData) {
+            let addedTask = new TodoList();
+            addedTask.userInput = userInput;
+
+            return addedTask;
+        }
+        return null;
     }
 
     function addTask(tdl:TodoList):void {
