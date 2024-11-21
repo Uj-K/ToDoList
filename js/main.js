@@ -1,5 +1,6 @@
 class TodoList {
 }
+let tasks = [];
 window.onload = function () {
     let addTaskBtn = document.querySelector("#add-todo");
     addTaskBtn.onclick = processTask;
@@ -15,7 +16,7 @@ function processTask() {
         let userInput = inputTextbox.value.trim();
         if (userInput == "") {
             isValidData = false;
-            alert("Please add something!");
+            alert("Please write something!");
         }
         if (isValidData) {
             let addedTask = new TodoList();
@@ -25,5 +26,10 @@ function processTask() {
         return null;
     }
     function addTask(tdl) {
+        tasks.push(tdl);
+        let todoList = document.querySelector("#todo-list");
+        let listItem = document.createElement("li");
+        listItem.textContent = tdl.userInput;
+        todoList.appendChild(listItem);
     }
 }
