@@ -1,5 +1,6 @@
 class TodoList {
     userInput: string;
+    completed: boolean;
 }
 
 let tasks: TodoList[] = [];
@@ -10,11 +11,18 @@ window.onload = function () {
     addTaskBtn.onclick = processTask;
 }
 
+
 function processTask() {
     let userTask = getTask();
     if (userTask != null) {
         addTask(userTask);
-    }            
+        clearTextBox();
+    }
+
+    function clearTextBox() {
+        let inputTextbox = document.querySelector("#todo-input") as HTMLInputElement;
+        inputTextbox.value = "";
+    }
 
     /**
      * This function will retrieve the task data from the HTML page
@@ -26,11 +34,11 @@ function processTask() {
         let inputTextbox = document.querySelector("#todo-input") as HTMLInputElement;
 
         // flag variable
-        let isValidData:boolean = true;
+        let isValidData: boolean = true;
 
         // Check if the input is empty. If so, pop up alert
         let userInput: string = inputTextbox.value.trim();
-        if (userInput == "") { 
+        if (userInput == "") {
             isValidData = false;
             alert("Please write something!");
         }
@@ -47,13 +55,21 @@ function processTask() {
 
     /**
      * Added a ToDoList object to the webpage
+     * Added event handler to control completed and non-completed tasks
      * @param tdl Valid data to be added
      */
-    function addTask(tdl:TodoList):void {
+    function addTask(tdl: TodoList): void {
         tasks.push(tdl);
-        let todoList = document.querySelector("#todo-list") as HTMLUListElement ;
+        let todoList = document.querySelector("#todo-list") as HTMLUListElement;
         let listItem = document.createElement("li");
         listItem.textContent = tdl.userInput;
+        listItem.onclick = function() {
+            taskCompletion(listItem, tdl);
+        }
         todoList.appendChild(listItem);
+    }
+
+    function taskCompletion (listItem: HTMLLIElement, tdl: TodoList): void {
+
     }
 }

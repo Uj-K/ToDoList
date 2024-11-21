@@ -9,6 +9,11 @@ function processTask() {
     let userTask = getTask();
     if (userTask != null) {
         addTask(userTask);
+        clearTextBox();
+    }
+    function clearTextBox() {
+        let inputTextbox = document.querySelector("#todo-input");
+        inputTextbox.value = "";
     }
     function getTask() {
         let inputTextbox = document.querySelector("#todo-input");
@@ -30,6 +35,11 @@ function processTask() {
         let todoList = document.querySelector("#todo-list");
         let listItem = document.createElement("li");
         listItem.textContent = tdl.userInput;
+        listItem.onclick = function () {
+            taskCompletion(listItem, tdl);
+        };
         todoList.appendChild(listItem);
+    }
+    function taskCompletion(listItem, tdl) {
     }
 }
