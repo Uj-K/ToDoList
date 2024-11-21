@@ -41,5 +41,6 @@ function processTask() {
         todoList.appendChild(listItem);
     }
     function taskCompletion(listItem, tdl) {
+        tdl.completed = !tdl.completed;
     }
 }
