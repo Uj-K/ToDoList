@@ -92,7 +92,19 @@ function processTask() {
         todoList.appendChild(listItem);
     }
 
+    /**
+     * Switch the completion status of a task 
+     * and update the style accordingly when clicked
+     * @param listItem The HTML <li> (list) element that represents the task
+     * @param tdl The TodoList object that contains the task data
+     */
     function taskCompletion (listItem: HTMLLIElement, tdl: TodoList): void {
-        tdl.completed = !tdl.completed; 
+        tdl.completed = !tdl.completed; // Negation operator 
+        if (tdl.completed) {
+            listItem.classList.add("completed");
+        } 
+        else {
+            listItem.classList.remove("completed");
+        }
     }
 }

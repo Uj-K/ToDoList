@@ -42,5 +42,11 @@ function processTask() {
     }
     function taskCompletion(listItem, tdl) {
         tdl.completed = !tdl.completed;
+        if (tdl.completed) {
+            listItem.classList.add("completed");
+        }
+        else {
+            listItem.classList.remove("completed");
+        }
     }
 }
